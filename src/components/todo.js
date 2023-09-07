@@ -10,9 +10,9 @@ const Todo=()=>{
         return setCurrentTodo(event.target.value)
     }
     const handleSubmit=()=>{
-        if(editingIndex!=undefined){
+        if(editingIndex!==undefined){
             const newList=allTodos.map((todo,index)=>{
-                if(index==editingIndex) return currentTodo;
+                if(index===editingIndex) return currentTodo;
                 return todo;
             });
             setAllTodos(newList);
@@ -49,7 +49,7 @@ const Todo=()=>{
                     </tr>
                 </thead>
                 <tbody>
-                    {allTodos.length==0?(
+                    {allTodos.length===0?(
                         <p>No Todos Available</p>
                     ):allTodos.map((todo,index)=>{
                         return(
@@ -57,7 +57,7 @@ const Todo=()=>{
                                 <td>{index+1}</td>
                                 <td>{todo}</td>
                                 <td>{
-                                    editingIndex==index?null:(
+                                    editingIndex===index?null:(
                                         <div>
                                             <button className="edit" onClick={()=>handleEdit(index)}>Edit</button>
                                             <button className="remove" onClick={()=>handleDelet(index)}>Delete</button>
